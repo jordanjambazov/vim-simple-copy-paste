@@ -6,13 +6,10 @@ endif
 
 function! SimpleCopy()
 python << EOF
-print "Simple Copy"
-EOF
-endfunction
-
-
-function! SimplePaste()
-python << EOF
-print "Simple Paste"
+import vim
+import pyperclip
+copied_text = vim.eval("@@")
+pyperclip.copy(copied_text)
+print "Copied to clipboard"
 EOF
 endfunction
